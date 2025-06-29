@@ -71,45 +71,59 @@ function playRound (humanChoice, computerChoice) {
 
     // human lose scenerios
     if (humanChoice == "Scissors" && computerChoice == "Rock") {
-        console.log("Computer Won!! Scissors beats rock!");
+        console.log("Computer Won!! Rock beats Scissors!");
         computerScore++;
     }
     if (humanChoice == "Paper" && computerChoice == "Scissors") {
-        console.log("Computer Won!! Paper beats Scissors!");
+        console.log("Computer Won!! Scissors beats Paper!");
         computerScore++;
     }
     if (humanChoice == "Rock" && computerChoice == "Paper") {
-        console.log("Computer Won!! Paper beats rock!");
+        console.log("Computer Won!! Paper beats Rock!");
         computerScore++;
     }
 
 }
 
-function playGame() {
+// function playGame() {
+//     for (let i = 0; i < 5; i++) {
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         playRound(humanSelection, computerSelection);
+//     }
+//     console.log("Your Score was " + humanScore);
+//     console.log("the computers score was " + computerScore);
+//     if (humanScore > computerScore) {
+//         console.log("You won Rock paper Scissors against the computer!");
+//     }
+//     else if (humanScore === computerScore) {
+//         console.log("This game of Rock paper scissors ended in a tie!");
+//     }
+//     else {
+//         console.log("You lost the game of Rock paper scissors against the computer!");
+//     }
+// }
+
+// playGame();
 
 
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-
-    }
-
-    console.log("Your Score was " + humanScore);
-    console.log("the computers score was " + computerScore);
-
-    if (humanScore > computerScore) {
-        console.log("You won Rock paper Scissors against the computer!");
-    }
-    else if (humanScore === computerScore) {
-        console.log("This game of Rock paper scissors ended in a tie!");
-    }
-    else {
-        console.log("You lost the game of Rock paper scissors against the computer!");
-    }
+const rock = document.querySelector('.rock-btn');
+const paper = document.querySelector('.paper-btn');
+const scissors = document.querySelector('.scissors-btn');
 
 
+rock.addEventListener("click", playRock);
+paper.addEventListener("click", playPaper);
+scissors.addEventListener("click", playScissors);
+
+function playRock() {
+    playRound("Rock", getComputerChoice());
 }
 
-playGame();
+function playPaper() {
+    playRound("Paper", getComputerChoice());
+}
+
+function playScissors() {
+    playRound("Scissors", getComputerChoice());
+}
