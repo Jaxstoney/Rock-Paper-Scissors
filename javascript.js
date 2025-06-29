@@ -38,78 +38,68 @@ function getHumanChoice() {
 
 }
 
-// let humanScore = 0;
-// let computerScore = 0;
 
 function playRound (humanChoice, computerChoice) {
 
     //human win scenerios
     if (humanChoice == "Rock" && computerChoice == "Scissors") {
-        console.log("You won!! Rock beats Scissors!");
+        // console.log("You won!! Rock beats Scissors!");
+        gameResult.textContent = "You won!! Rock beats Scissors!";
         humanScore++;
     }
     if (humanChoice == "Scissors" && computerChoice == "Paper") {
-        console.log("You won!! Scissors beats paper!");
+        // console.log("You won!! Scissors beats paper!");
+        gameResult.textContent = "You won!! Scissors beats paper!";
         humanScore++;
     }
     if (humanChoice == "Paper" && computerChoice == "Rock") {
-        console.log("You won!! Paper beats rock!");
+        // console.log("You won!! Paper beats rock!");
+        gameResult.textContent = "You won!! Paper beats rock!";
         humanScore++;
     }
 
     // tie scenerios
 
     if (humanChoice == "Rock" && computerChoice == "Rock") {
-        console.log("Tie!!");
+        // console.log("Tie!!");
+        gameResult.textContent = "Tie!!";
     }
     if (humanChoice == "Scissors" && computerChoice == "Scissors") {
-        console.log("Tie!!");
+        // console.log("Tie!!");
+        gameResult.textContent = "Tie!!";
     }
     if (humanChoice == "Paper" && computerChoice == "Paper") {
-        console.log("Tie!!");
+        // console.log("Tie!!");
+        gameResult.textContent = "Tie!!";
     }
 
     // human lose scenerios
     if (humanChoice == "Scissors" && computerChoice == "Rock") {
-        console.log("Computer Won!! Rock beats Scissors!");
+        // console.log("Computer Won!! Rock beats Scissors!");
+        gameResult.textContent = "Computer Won!! Rock beats Scissors!";
         computerScore++;
     }
     if (humanChoice == "Paper" && computerChoice == "Scissors") {
-        console.log("Computer Won!! Scissors beats Paper!");
+        // console.log("Computer Won!! Scissors beats Paper!");
+        gameResult.textContent = "Computer Won!! Scissors beats Paper!";
         computerScore++;
     }
     if (humanChoice == "Rock" && computerChoice == "Paper") {
-        console.log("Computer Won!! Paper beats Rock!");
+        // console.log("Computer Won!! Paper beats Rock!");
+        gameResult.textContent = "Computer Won!! Paper beats Rock!";
         computerScore++;
     }
 
 }
 
-// function playGame() {
-//     for (let i = 0; i < 5; i++) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//     }
-//     console.log("Your Score was " + humanScore);
-//     console.log("the computers score was " + computerScore);
-//     if (humanScore > computerScore) {
-//         console.log("You won Rock paper Scissors against the computer!");
-//     }
-//     else if (humanScore === computerScore) {
-//         console.log("This game of Rock paper scissors ended in a tie!");
-//     }
-//     else {
-//         console.log("You lost the game of Rock paper scissors against the computer!");
-//     }
-// }
-
-// playGame();
 
 
 const rock = document.querySelector('.rock-btn');
 const paper = document.querySelector('.paper-btn');
 const scissors = document.querySelector('.scissors-btn');
+const gameResult = document.querySelector('.heading');
+const playerScore = document.querySelector('.player-score');
+const botScore = document.querySelector('.bot-score')
 
 
 rock.addEventListener("click", playRock);
@@ -118,12 +108,19 @@ scissors.addEventListener("click", playScissors);
 
 function playRock() {
     playRound("Rock", getComputerChoice());
+    playerScore.textContent = "Your score: " + humanScore;
+    botScore.textContent = "Computer Score: " + computerScore;
+
 }
 
 function playPaper() {
     playRound("Paper", getComputerChoice());
+    playerScore.textContent = "Your score: " + humanScore;
+    botScore.textContent = "Computer Score: " + computerScore;
 }
 
 function playScissors() {
     playRound("Scissors", getComputerChoice());
+    playerScore.textContent = "Your score: " + humanScore;
+    botScore.textContent = "Computer Score: " + computerScore;
 }

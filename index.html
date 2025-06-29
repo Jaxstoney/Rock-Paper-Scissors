@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script type="text/javascript" src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-   <div style="display: flex; justify-content: space-around; align-items: center; height: 750px;">
+    <div id="top-container">
+        <h1 class="heading">Rock, Paper, Scissors? Try it!</h1>
+    </div>
+    
 
-        <button class="rock-btn" style="height: 200px; width: 200px;">Rock</button>
+   <div id="container">
+        <button class="rock-btn buttons">Rock</button>
 
-        <button class="paper-btn" style="height: 200px; width: 200px;">Paper</button>
+        <button class="paper-btn buttons">Paper</button>
 
-        <button class="scissors-btn" style="height: 200px; width: 200px;">Scissors</button>
-
-
+        <button class="scissors-btn buttons">Scissors</button>
    </div>
+
+   <div class="score-container">
+    <h3 class="player-score"></h3>
+    <h3 class="bot-score"></h3>
+   </div>
+
+   <div class="nametag">
+    <h5 id="name">made by Jackson Stone</h5>
+   </div>
+
 
 </body>
 </html>
